@@ -118,20 +118,23 @@ void compileWav()
     fftw_free(in);
     fftw_free(out);
 
-    //std::cout << "TOTAL OUTPUT" << std::endl;
+    std::cout << "TOTAL OUTPUT" << std::endl;
     for(int i=0; i<output.size(); i++)
     {
-        //std::cout << output.at(i) << std::endl;
+        std::cout << output.at(i) << std::endl;
     }
 
     SNDFILE* file = sf_open("test.wav", SFM_WRITE, info);
-    double *buffer;
-    buffer = new double[N];
+    int *buffer;
+    buffer = new int[N];
     for(int i=0; i<N; i++)
     {
-        buffer[i] = (output.at(i) + 1) / 2 * MAX_AMPLITUDE;
+        buffer[i] = (int)round((output.at(i) + 1) / 2 * MAX_AMPLITUDE);
     }
-    sf_write_double(file, buffer, N);
+    if(sf_write_int(file, buffer, N) != N)
+    {
+        std::cout << "ERROR";
+    }
     delete buffer;
     sf_close(file);
     delete info;
