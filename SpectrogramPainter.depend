@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1356676612 source:/home/thatsnail/Desktop/C++/SpectrogramPainter/main.cpp
+	<SFML/Graphics.hpp>
+	<vector>
+	<stdio.h>
+	<sndfile.h>
+	<complex>
+	<iostream>
+	<fftw3.h>
+	<sstream>
+
