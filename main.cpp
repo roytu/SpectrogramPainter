@@ -100,9 +100,9 @@ void compileWav()
         for(int i=0; i<N; i++)
         {
             int o = w - WINDOW_SIZE / 2 + i;
-            double wi = 0.5 * (1 - cos(2 * M_PI * (double)(i)) / N) * WINDOW_SIZE;
+            //double wi = 0.5 * (1 - cos(2 * M_PI * (double)(i)) / N) * WINDOW_SIZE;
             //double wi = 1;
-            //double wi = WINDOW_SIZE;
+            double wi = WINDOW_SIZE;
             if(o >= 0 && o < SAMPLE_COUNT)
             {
                 output.at(o) += out[i][0] / wi;
